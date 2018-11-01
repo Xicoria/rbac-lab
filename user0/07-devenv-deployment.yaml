@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: devenv
+  name: devenv
+  namespace: user0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devenv
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: devenv
+    spec:
+      serviceAccountName: sa-user0
+      containers:
+      - image: xicoria/kubectl:latest
+        name: devenv
+        resources: {}
+status: {}
